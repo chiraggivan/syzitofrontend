@@ -1,0 +1,26 @@
+
+<div class="container" ng-controller="JobController as ctrl">
+
+	<div class="form-group"></div>
+
+	Search for Job
+	<p>
+		<input type="text" ng-model="search_text">
+	</p>
+
+	<div ng-repeat=" job in ctrl.jobs | filter : search_text">
+
+		<fieldset>
+			<p>
+				ID : {{job.id}} &nbsp;&nbsp;&nbsp; <a href="#"
+					ng-click="ctrl.getJobDeetails(job.id)">Get Job details</a>
+				&nbsp;&nbsp;&nbsp;
+				<button type="button" ng-click="ctrl.applyForJob(job.id)"
+					class="btn btnp-warning btn-sn">Apply for Job</button>
+			</p>
+
+			<p>Title: {{job.name}}</p>
+			<p>Posted on: {{job.date}}</p>
+		</fieldset>
+	</div>
+</div>
