@@ -23,7 +23,7 @@ app.controller('BlogController',['$scope','BlogService','$location','$rootScope'
 				console.log("->-> starting getAllBlogs() function from BlogController.js");
 				BlogService.getAllBlogs().then(
 						function(d){
-							self.jobs = d;
+							self.blogs = d;
 						},
 						function(errResponse){
 							console.error('Error while get all the Blogs that are valid');

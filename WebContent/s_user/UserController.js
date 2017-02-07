@@ -125,15 +125,11 @@ app.controller(	'UserController', [	'$scope', 'UserService', '$location','$rootS
 														self.user.password = "";
 
 													} else { //valid credentials
-														console
-																.log("Valid credentials. Navigating to home page")
+														console.log("Valid credentials. Navigating to home page")
 														$rootScope.currentUserID = self.user.id
-														$http.defaults.headers.common['Authorization'] = 'Basic '
-																+ $rootScope.currentUser;
-														$cookieStore
-																.put(
-																		'currentUser',
-																		$rootScope.currentUser);
+														$rootScope.currentUserRole = self.user.role
+														$http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.currentUser;
+														$cookieStore.put('currentUser',$rootScope.currentUser);
 														$location.path('/');
 
 													}

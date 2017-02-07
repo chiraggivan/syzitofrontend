@@ -20,7 +20,7 @@ app.factory('BlogService', ['$http', '$q','$rootScope', function($http, $q,$root
 				);
 		},
 		
-		getMyBlogs : function(){
+		getMyBlogs : function(currentUserID){
 			console.log("--> getMyBlogs() function in BlogService.js");
 			console.log("--> calling url :"+ BASE_URL+"/getMyBlogs");
 			return $http.get(BASE_URL+"/getMyBlogs").then(

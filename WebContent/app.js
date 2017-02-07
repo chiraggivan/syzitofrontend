@@ -141,10 +141,11 @@ app.run( function ($rootScope, $location,$cookieStore, $http) {
 	        var restrictedPage = $.inArray($location.path(), ['','/','/search_job','/view_blog','/login', '/register','/list_blog']) === -1;
 		 console.log("Navigating to page :" + $location.path())
 	        console.log("restrictedPage:" +restrictedPage)
-	        console.log("currentUser:" +$rootScope.currentUser)
+	        console.log("currentUser:" + $rootScope.currentUser)
 	        var loggedIn = $rootScope.currentUser.id;
 	        
 	        console.log("loggedIn:" +loggedIn)
+	        console.log("currentUserID:" + $rootScope.currentUserID)
 	        
 	        if(!loggedIn)
 	        	{
@@ -163,7 +164,7 @@ app.run( function ($rootScope, $location,$cookieStore, $http) {
 				 var role = $rootScope.currentUser.role;
 				 var userRestrictedPage = $.inArray($location.path(), ["/post_job"]) == 0;
 				 
-				 if(userRestrictedPage && role!='admin' )
+				 if(userRestrictedPage && role!='A' )
 					 {
 					 
 					  alert("You can not do this operation as you are logged as : " + role )
